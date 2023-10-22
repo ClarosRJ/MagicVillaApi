@@ -15,8 +15,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MvaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConecction")));
 var app = builder.Build();
 
-
-//configure add gitignore
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
