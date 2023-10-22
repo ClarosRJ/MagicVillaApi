@@ -16,7 +16,7 @@ builder.Services.AddDbContext<MvaDbContext>(options => options.UseSqlServer(buil
 var app = builder.Build();
 
 
-
+//configure add gitignore
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
