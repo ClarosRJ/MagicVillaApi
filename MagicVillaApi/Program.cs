@@ -6,13 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+// Servicio para Agregar AddNewtonsoftJson para utilizar metodo patch con JsonPatchDocument
 builder.Services.AddControllers().AddNewtonsoftJson();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//conexion base de datos
+
+//servicio conexion base de datos
 builder.Services.AddDbContext<MvaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConecction")));
+
+//servicio de automapper
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
